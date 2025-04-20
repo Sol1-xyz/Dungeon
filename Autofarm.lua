@@ -1,7 +1,7 @@
 
 repeat wait() until game:IsLoaded()
  if game.PlaceId == 112315720097464 then
- 
+ wait(2)
  local ohTable1 = {
  	["Location"] = "Orc Lands",
  	["GroupType"] = "Private",

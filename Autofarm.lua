@@ -19,4 +19,4 @@ wait(0.5)
 game:GetService("ReplicatedStorage").Events.StartDungeonGroup:FireServer()
 end
 
-queue_on_teleport('repeat wait() until game:IsLoaded(); loadstring(game:HttpGet("https://pastebin.com/raw/eF5baLjY"))()')
+queue_on_teleport('repeat wait() until game:IsLoaded(); loadstring(game:HttpGet("https://pastebin.com/raw/ZN19esUw"))()')

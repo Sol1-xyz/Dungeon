@@ -1,5 +1,12 @@
 
 repeat wait() until game:IsLoaded()
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+repeat wait() until player.Character or player.CharacterAdded:Wait()
+local character = player.Character
+
+repeat wait() until character:FindFirstChild("Humanoid") and character:FindFirstChild("ShortSwords")
  if game.PlaceId == 112315720097464 then
  wait(2)
  local ohTable1 = {

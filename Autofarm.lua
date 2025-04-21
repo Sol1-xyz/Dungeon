@@ -12,7 +12,7 @@ local player = Players.LocalPlayer
 -- Check if we’re in lobby
 local ohTable1 = {
 	["Location"] = "Orc Lands",
-	["GroupType"] = "Public",
+	["GroupType"] = "Private",
 	["Difficult"] = "Easy",
 	["Invasions"] = false
 }
@@ -38,7 +38,7 @@ local sellableIds = {}
 
 local UIInventoryController = require(game:GetService("Players").LocalPlayer.PlayerScripts.UIController.UIInventoryController)
 
-function ohtab(id, rarity)
+function ohtab(id, rarity, typez, globaltype, level)
      ohTable1 = {
 	["Type"] = "Head",
 	["Rarity"] = rarity,
@@ -75,6 +75,9 @@ end
 for _, itemData in pairs(UIInventoryController.savedInventory) do
     local itemId = nil
     local rarity = nil
+    local typez = nil
+    local globalType = nil
+    local level = nil
 
     -- Loop through each field in the item
     for key, value in pairs(itemData) do
@@ -82,13 +85,20 @@ for _, itemData in pairs(UIInventoryController.savedInventory) do
             itemId = value
         elseif key == "Rarity" then
             rarity = value
+        elseif key == "Type" then
+            typez = value
+        elseif key == "GlobalType" then
+            globalType = value
+        elseif key == "Level" then
+            level = value
         end
+
     end
 
     -- If the rarity is NOT Epic or Legendary, save the ID
     if rarity ~= "Epic" and rarity ~= "Legendary" and itemId then
         table.insert(sellableIds, itemId)
-        game:GetService("ReplicatedStorage").Events.IdentifyItem:InvokeServer(ohtab(itemId, rarity))
+        game:GetService("ReplicatedStorage").Events.IdentifyItem:InvokeServer(ohtab(itemId, rarity, typez, globalType, level))
     end
 end
 

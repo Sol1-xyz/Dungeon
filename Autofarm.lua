@@ -1,5 +1,5 @@
 repeat wait() until game:IsLoaded()
-
+print("runnn")
 for _, conn in pairs(getconnections(game:GetService("RunService").RenderStepped)) do
     conn:Disconnect()
 end

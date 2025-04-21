@@ -101,7 +101,7 @@ for _, itemData in pairs(UIInventoryController.savedInventory) do
     end
 
     -- If the rarity is NOT Epic or Legendary, save the ID
-    if rarity ~= "Epic" and rarity ~= "Legendary" and itemId then
+    if rarity ~= "Epic" and rarity ~= "Legendary" and itemId and not globalType:match("Undefined") then
         table.insert(sellableIds, itemId)
     elseif globalType:match("Undefined") then
         game:GetService("ReplicatedStorage").Events.IdentifyItem:InvokeServer(ohtab(itemId, rarity, typez, globalType, level))
@@ -110,8 +110,8 @@ end
 
 
 
-
---game:GetService("ReplicatedStorage").Events.SellItems:InvokeServer(sellableIds)
+wait(0.3)
+game:GetService("ReplicatedStorage").Events.SellItems:InvokeServer(sellableIds)
 
 
 
@@ -122,7 +122,7 @@ if placeId == 112315720097464 then
 
 queue_on_teleport('loadstring(game:HttpGet("https://pastebin.com/raw/SGCXA4rM"))()')
 
-    wait(1)
+    wait(5)
     ReplicatedStorage.Events.StartDungeonGroup:FireServer()
   
 

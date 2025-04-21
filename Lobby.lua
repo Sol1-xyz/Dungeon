@@ -1,3 +1,5 @@
+print("nig")
+
 repeat wait() until game:IsLoaded()
 
 local Players = game:GetService("Players")

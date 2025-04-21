@@ -1,5 +1,5 @@
 repeat wait() until game:IsLoaded()
-print("runnn")
+
 for _, conn in pairs(getconnections(game:GetService("RunService").RenderStepped)) do
     conn:Disconnect()
 end
@@ -47,19 +47,19 @@ repeat wait() until UIInventoryController.savedInventory and typeof(UIInventoryC
 
 function ohtab(id, rarity, typez, globaltype, level)
      ohTable1 = {
-	["Type"] = "Head",
+	["Type"] = typez,
 	["Rarity"] = rarity,
 	["Params"] = {},
 	["Price"] = 3,
 	["IsEquipped"] = false,
 	["IsBlockedForIdentifyDrop"] = true,
-	["GlobalType"] = "UndefinedArmor",
+	["GlobalType"] = globaltype,
 	["Id"] = id,
 	["Title"] = "Undefined Helmet",
 	["Name"] = "UndefinedHelmet",
 	["Quality"] = 1,
 	["Sharp"] = 0,
-	["Level"] = 2,
+	["Level"] = level,
 	["Icon"] = "rbxassetid://88384566319596",
 	["PossibleRarity"] = {
 		[1] = "Common",
@@ -103,6 +103,7 @@ for _, itemData in pairs(UIInventoryController.savedInventory) do
     -- If the rarity is NOT Epic or Legendary, save the ID
     if rarity ~= "Epic" and rarity ~= "Legendary" and itemId then
         table.insert(sellableIds, itemId)
+    elseif globalType:match("Undefined") then
         game:GetService("ReplicatedStorage").Events.IdentifyItem:InvokeServer(ohtab(itemId, rarity, typez, globalType, level))
     end
 end

@@ -63,7 +63,7 @@ if placeId == 112315720097464 then
 
 
 
-queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Sol1-xyz/Dungeon/refs/heads/main/Lobby.lua"))()')
+queue_on_teleport('https://pastebin.com/raw/SGCXA4rM"))()')
 
     wait(0.5)
     ReplicatedStorage.Events.StartDungeonGroup:FireServer()
@@ -72,5 +72,5 @@ queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/So
 
 else
     -- Farming logic (auto loaded via the queued teleport script)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Sol1-xyz/Dungeon/refs/heads/main/Lobby.lua"))()
+    loadstring(game:HttpGet("https://pastebin.com/raw/SGCXA4rM"))()
 end

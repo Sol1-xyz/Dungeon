@@ -33,13 +33,44 @@ repeat wait() until character:FindFirstChild("Humanoid")
 local placeId = game.PlaceId
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-
+local sellableIds = {}
 
 
 local UIInventoryController = require(game:GetService("Players").LocalPlayer.PlayerScripts.UIController.UIInventoryController)
 
+function ohtab(id)
+     ohTable1 = {
+	["Type"] = "Head",
+	["Rarity"] = "Common",
+	["Params"] = {},
+	["Price"] = 3,
+	["IsEquipped"] = false,
+	["IsBlockedForIdentifyDrop"] = true,
+	["GlobalType"] = "UndefinedArmor",
+	["Id"] = id,
+	["Title"] = "Undefined Helmet",
+	["Name"] = "UndefinedHelmet",
+	["Quality"] = 1,
+	["Sharp"] = 0,
+	["Level"] = 2,
+	["Icon"] = "rbxassetid://88384566319596",
+	["PossibleRarity"] = {
+		[1] = "Common",
+		[2] = "Uncommon",
+		[3] = "Rare",
+		[4] = "Epic",
+		[5] = "Legendary",
+		[6] = "Mythic"
+	}
+}
 
-local sellableIds = {}
+return ohTable1
+
+end
+
+
+
+
 
 for _, itemData in pairs(UIInventoryController.savedInventory) do
     local itemId = nil
@@ -57,8 +88,11 @@ for _, itemData in pairs(UIInventoryController.savedInventory) do
     -- If the rarity is NOT Epic or Legendary, save the ID
     if rarity ~= "Epic" and rarity ~= "Legendary" and itemId then
         table.insert(sellableIds, itemId)
+        game:GetService("ReplicatedStorage").Events.IdentifyItem:InvokeServer(ohtab(itemId))
     end
 end
+
+
 
 --game:GetService("ReplicatedStorage").Events.SellItems:InvokeServer(sellableIds)
 

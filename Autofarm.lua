@@ -60,7 +60,7 @@ for _, itemData in pairs(UIInventoryController.savedInventory) do
     end
 end
 
-game:GetService("ReplicatedStorage").Events.SellItems:InvokeServer(sellableIds)
+--game:GetService("ReplicatedStorage").Events.SellItems:InvokeServer(sellableIds)
 
 
 

@@ -125,7 +125,7 @@ if placeId == 112315720097464 then
 
 queue_on_teleport('loadstring(game:HttpGet("https://pastebin.com/raw/SGCXA4rM"))()')
 
-    wait(5)
+    wait(1)
     ReplicatedStorage.Events.StartDungeonGroup:FireServer()
   
 

@@ -27,7 +27,7 @@ repeat wait() until player.Character or player.CharacterAdded:Wait()
 local character = player.Character
 
 repeat wait() until character:FindFirstChild("Humanoid") 
-
+repeat wait() until game:GetService("Players").LocalPlayer.PlayerScripts and game:GetService("Players").LocalPlayer.PlayerScripts.UIController and game:GetService("Players").LocalPlayer.PlayerScripts.UIController.UIInventoryController
 
 
 local placeId = game.PlaceId

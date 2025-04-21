@@ -4,18 +4,7 @@ for _, conn in pairs(getconnections(game:GetService("RunService").RenderStepped)
     conn:Disconnect()
 end
 
--- Check if we’re in lobby
-local ohTable1 = {
-	["Location"] = "Orc Lands",
-	["GroupType"] = "Public",
-	["Difficult"] = "Easy",
-	["Invasions"] = false
-}
-local ohTable2 = {
-	["NoPotions"] = true
-}
 
-game:GetService("ReplicatedStorage").Events.CreateDungeonGroup:FireServer(ohTable1, ohTable2)
 
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
@@ -30,6 +19,18 @@ repeat wait() until character:FindFirstChild("Humanoid")
 local placeId = game.PlaceId
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
+-- Check if we’re in lobby
+local ohTable1 = {
+	["Location"] = "Orc Lands",
+	["GroupType"] = "Public",
+	["Difficult"] = "Easy",
+	["Invasions"] = false
+}
+local ohTable2 = {
+	["NoPotions"] = true
+}
+
+game:GetService("ReplicatedStorage").Events.CreateDungeonGroup:FireServer(ohTable1, ohTable2)
 
 
 local UIInventoryController = require(game:GetService("Players").LocalPlayer.PlayerScripts.UIController.UIInventoryController)

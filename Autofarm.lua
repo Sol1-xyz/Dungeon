@@ -1,3 +1,5 @@
+repeat wait() until game:IsLoaded()
+
 for _, conn in pairs(getconnections(game:GetService("RunService").RenderStepped)) do
     conn:Disconnect()
 end
@@ -23,7 +25,7 @@ local character = player.Character
 
 repeat wait() until character:FindFirstChild("Humanoid") 
 
-repeat wait() until game:IsLoaded()
+
 
 local placeId = game.PlaceId
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -63,7 +65,7 @@ if placeId == 112315720097464 then
 
 
 
-queue_on_teleport('https://pastebin.com/raw/SGCXA4rM"))()')
+queue_on_teleport('loadstring(game:HttpGet("https://pastebin.com/raw/SGCXA4rM"))()')
 
     wait(0.5)
     ReplicatedStorage.Events.StartDungeonGroup:FireServer()

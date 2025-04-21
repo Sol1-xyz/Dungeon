@@ -38,10 +38,10 @@ local sellableIds = {}
 
 local UIInventoryController = require(game:GetService("Players").LocalPlayer.PlayerScripts.UIController.UIInventoryController)
 
-function ohtab(id)
+function ohtab(id, rarity)
      ohTable1 = {
 	["Type"] = "Head",
-	["Rarity"] = "Common",
+	["Rarity"] = rarity,
 	["Params"] = {},
 	["Price"] = 3,
 	["IsEquipped"] = false,
@@ -88,9 +88,10 @@ for _, itemData in pairs(UIInventoryController.savedInventory) do
     -- If the rarity is NOT Epic or Legendary, save the ID
     if rarity ~= "Epic" and rarity ~= "Legendary" and itemId then
         table.insert(sellableIds, itemId)
-        game:GetService("ReplicatedStorage").Events.IdentifyItem:InvokeServer(ohtab(itemId))
+        game:GetService("ReplicatedStorage").Events.IdentifyItem:InvokeServer(ohtab(itemId, rarity))
     end
 end
+
 
 
 

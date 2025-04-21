@@ -70,7 +70,7 @@ end
 
 
 
-
+repeat wait() until UIInventoryController;
 
 for _, itemData in pairs(UIInventoryController.savedInventory) do
     local itemId = nil

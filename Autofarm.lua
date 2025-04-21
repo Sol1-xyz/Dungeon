@@ -35,8 +35,15 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local sellableIds = {}
 
+repeat wait() until (
+    game:GetService("Players").LocalPlayer.PlayerScripts
+    and game:GetService("Players").LocalPlayer.PlayerScripts:FindFirstChild("UIController")
+    and game:GetService("Players").LocalPlayer.PlayerScripts.UIController:FindFirstChild("UIInventoryController")
+)
+
 
 local UIInventoryController = require(game:GetService("Players").LocalPlayer.PlayerScripts.UIController.UIInventoryController)
+repeat wait() until UIInventoryController.savedInventory and typeof(UIInventoryController.savedInventory) == "table"
 
 function ohtab(id, rarity, typez, globaltype, level)
      ohTable1 = {
@@ -69,8 +76,6 @@ return ohTable1
 end
 
 
-
-repeat wait() until UIInventoryController;
 
 for _, itemData in pairs(UIInventoryController.savedInventory) do
     local itemId = nil
